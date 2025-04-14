@@ -1,0 +1,342 @@
+/* RESET & BASE */
+body {
+  margin: 0;
+  font-family: 'Jost', sans-serif;
+  background: #f7f8fd;
+  color: #3a4374;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+h1, h2, h3 {
+  margin: 0 0 1rem;
+}
+
+/* LAYOUT */
+.home-container {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.sidebar {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.main-content {
+  flex: 1;
+}
+
+.roadmap-page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* SIDEBAR */
+.company-card {
+  background: linear-gradient(to right, #8a2be2, #ff8aa3);
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.filter-box, .roadmap-preview {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.filter-button {
+  margin: 0.25rem;
+  border: none;
+  border-radius: 6px;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  background: #f2f4ff;
+  color: #4661e6;
+  font-weight: bold;
+}
+
+.filter-button.active {
+  background: #4661e6;
+  color: white;
+}
+
+.view-roadmap {
+  background: none;
+  border: none;
+  color: #4661e6;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.roadmap-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* FEEDBACK CARDS */
+.feedback-card {
+  background: white;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  cursor: pointer;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-content {
+  flex: 1;
+  cursor: pointer;
+}
+
+.card-comments {
+  margin-left: 1rem;
+  font-weight: bold;
+  color: #647196;
+  display: flex;
+  align-items: center;
+}
+
+.category-badge {
+  background: #f2f4ff;
+  color: #4661e6;
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+/* UPVOTE BUTTON */
+.upvote-button {
+  background: #f2f4ff;
+  border: none;
+  color: #4661e6;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 0.5rem;
+  cursor: pointer;
+  min-width: 50px;
+}
+
+/* SUGGESTIONS HEADER */
+.suggestions-header {
+  background: #3a4374;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ADD FEEDBACK */
+.add-feedback-button {
+  background: #ad1fea;
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* SORTING DROPDOWN */
+.sort-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  font-weight: bold;
+  color: white;
+}
+
+.sort-button {
+  background: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.sort-dropdown {
+  position: absolute;
+  top: 2rem;
+  background: white;
+  color: #4661e6;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 200px;
+  z-index: 1000;
+}
+
+.sort-dropdown li {
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.sort-dropdown li:hover,
+.sort-dropdown li.selected {
+  background: #f2f4ff;
+  color: #ad1fea;
+  font-weight: bold;
+}
+
+/* EMPTY STATE */
+.empty-state {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.empty-state h3 {
+  font-size: 1.5rem;
+}
+
+/* ROADMAP GRID */
+.roadmap-grid {
+  display: flex;
+  gap: 2rem;
+}
+
+.roadmap-column {
+  flex: 1;
+}
+
+/* GO BACK BUTTON */
+.go-back-button {
+  background: none;
+  border: none;
+  color: #4661e6;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+/* FORM ELEMENTS */
+form input,
+form select,
+form textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+form textarea {
+  resize: vertical;
+}
+
+form button {
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+form button[type="submit"] {
+  background: #ad1fea;
+  color: white;
+}
+
+form button[type="button"] {
+  background: #3a4374;
+  color: white;
+}
+
+form button[type="button"].delete {
+  background: red;
+}
+
+/* COMMENT SECTION */
+.comment-list {
+  list-style: none;
+  padding: 0;
+}
+
+.comment-list li {
+  border-bottom: 1px solid #ddd;
+  padding: 1rem 0;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 1024px) {
+  .home-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .roadmap-grid {
+    flex-direction: column;
+  }
+
+  .suggestions-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-container {
+    padding: 1rem;
+  }
+
+  .sidebar {
+    display: none; /* replace with collapsible menu if needed */
+  }
+
+  .main-content,
+  .roadmap-page {
+    padding: 0 1rem;
+  }
+
+  .add-feedback-button,
+  form button,
+  .go-back-button {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .roadmap-grid {
+    gap: 1rem;
+  }
+
+  .feedback-card {
+    padding: 1rem;
+  }
+
+  .sort-dropdown {
+    width: 100%;
+  }
+}
