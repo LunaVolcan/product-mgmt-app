@@ -41,7 +41,18 @@ function Home() {
 
   return (
     <div className="home-container">
-      {/* SIDEBAR (desktop/tablet only) */}
+      {/* ✅ Mobile Header */}
+      <div className="mobile-header-bar">
+        <div className="mobile-header-top">
+          <div className="mobile-company">
+            <h2>My Company</h2>
+            <p>Feedback Board</p>
+          </div>
+          <button className="hamburger" onClick={() => setMobileMenuOpen(true)}>☰</button>
+        </div>
+      </div>
+
+      {/* ✅ Desktop Sidebar */}
       <aside className="sidebar">
         <div className="company-card">
           <h2>My Company</h2>
@@ -76,56 +87,80 @@ function Home() {
         </div>
       </aside>
 
-      {/* MAIN CONTENT */}
-      <main className="main-content">
-        <div className="suggestions-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-            <h2>{sortedFeedback.length} Suggestions</h2>
+      {/* ✅ Desktop Suggestions Header */}
+      <div className="desktop-suggestions-header">
+        <div className="suggestions-left">
+          <h2 className="suggestion-count">{sortedFeedback.length} Suggestions</h2>
 
-            {/* SORTING DROPDOWN */}
-            <div className="sort-container">
-              <span>Sort by:</span>
-              <button onClick={() => setDropdownOpen(!dropdownOpen)} className="sort-button">
-                {sortOption} ⌄
-              </button>
-
-              {dropdownOpen && (
-                <ul className="sort-dropdown">
-                  {['Most Upvotes', 'Least Upvotes', 'Most Comments', 'Least Comments'].map(option => (
-                    <li
-                      key={option}
-                      onClick={() => {
-                        setSortOption(option)
-                        setDropdownOpen(false)
-                      }}
-                      className={sortOption === option ? 'selected' : ''}
-                    >
-                      {option}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          </div>
-
-          {/* ADD FEEDBACK + HAMBURGER */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <button
-              onClick={() => navigate('/new-feedback')}
-              className="add-feedback-button"
-            >
-              + Add Feedback
+          <div className="sort-container">
+            <span>Sort by:</span>
+            <button onClick={() => setDropdownOpen(!dropdownOpen)} className="sort-button">
+              {sortOption} ⌄
             </button>
-            <button
-              className="hamburger"
-              onClick={() => setMobileMenuOpen(true)}
-            >
-              ☰
-            </button>
+
+            {dropdownOpen && (
+              <ul className="sort-dropdown">
+                {['Most Upvotes', 'Least Upvotes', 'Most Comments', 'Least Comments'].map(option => (
+                  <li
+                    key={option}
+                    onClick={() => {
+                      setSortOption(option)
+                      setDropdownOpen(false)
+                    }}
+                    className={sortOption === option ? 'selected' : ''}
+                  >
+                    {option}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
 
-        {/* FEEDBACK LIST */}
+        <button
+          onClick={() => navigate('/new-feedback')}
+          className="add-feedback-button"
+        >
+          + Add Feedback
+        </button>
+      </div>
+
+      {/* ✅ Mobile Sort/Add Row */}
+      <div className="mobile-actions-row">
+        <div className="mobile-sort-container">
+          <span>Sort by:</span>
+          <button onClick={() => setDropdownOpen(!dropdownOpen)} className="sort-button">
+            {sortOption} ⌄
+          </button>
+
+          {dropdownOpen && (
+            <ul className="sort-dropdown">
+              {['Most Upvotes', 'Least Upvotes', 'Most Comments', 'Least Comments'].map(option => (
+                <li
+                  key={option}
+                  onClick={() => {
+                    setSortOption(option)
+                    setDropdownOpen(false)
+                  }}
+                  className={sortOption === option ? 'selected' : ''}
+                >
+                  {option}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+
+        <button
+          onClick={() => navigate('/new-feedback')}
+          className="mobile-add-feedback"
+        >
+          + Add Feedback
+        </button>
+      </div>
+
+      {/* ✅ Main Content */}
+      <main className="main-content">
         {sortedFeedback.length === 0 ? (
           <div className="empty-state">
             <h3>No Feedback Yet</h3>
@@ -168,7 +203,7 @@ function Home() {
         )}
       </main>
 
-      {/* MOBILE MENU OVERLAY */}
+      {/* ✅ Mobile Sidebar Overlay */}
       {mobileMenuOpen && (
         <div className="mobile-sidebar-overlay">
           <div className="mobile-sidebar">
@@ -196,10 +231,13 @@ function Home() {
             <div className="roadmap-preview">
               <div className="roadmap-header">
                 <strong>Roadmap</strong>
-                <button onClick={() => {
-                  navigate('/roadmap')
-                  setMobileMenuOpen(false)
-                }} className="view-roadmap">
+                <button
+                  onClick={() => {
+                    navigate('/roadmap')
+                    setMobileMenuOpen(false)
+                  }}
+                  className="view-roadmap"
+                >
                   View
                 </button>
               </div>

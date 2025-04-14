@@ -9,6 +9,8 @@ body {
 button, input, select, textarea {
   font-family: inherit;
   font-size: 1rem;
+  border: none;
+  outline: none;
 }
 
 h1, h2, h3 {
@@ -35,12 +37,6 @@ h1, h2, h3 {
   flex: 1;
 }
 
-.roadmap-page {
-  padding: 2rem;
-  max-width: 1200px;
-  margin: auto;
-}
-
 /* SIDEBAR */
 .company-card {
   background: linear-gradient(to right, #8a2be2, #ff8aa3);
@@ -50,20 +46,19 @@ h1, h2, h3 {
 }
 
 .filter-box, .roadmap-preview {
-  background: #fff;
+  background: white;
   padding: 1rem;
   border-radius: 10px;
 }
 
 .filter-button {
   margin: 0.25rem;
-  border: none;
   border-radius: 6px;
   padding: 0.25rem 0.75rem;
-  cursor: pointer;
   background: #f2f4ff;
   color: #4661e6;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .filter-button.active {
@@ -73,26 +68,82 @@ h1, h2, h3 {
 
 .view-roadmap {
   background: none;
-  border: none;
   color: #4661e6;
   font-weight: bold;
   cursor: pointer;
 }
 
-.roadmap-header {
+/* DESKTOP SUGGESTIONS HEADER */
+.desktop-suggestions-header {
+  background: #3a4374;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* FEEDBACK CARDS */
+.suggestions-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.suggestion-count {
+  margin: 0;
+}
+
+/* SORT DROPDOWN */
+.sort-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  font-weight: bold;
+  color: white;
+}
+
+.sort-button {
+  background: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.sort-dropdown {
+  position: absolute;
+  top: 2rem;
+  background: white;
+  color: #4661e6;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  padding: 0;
+  width: 200px;
+  z-index: 1000;
+  list-style: none;
+}
+
+.sort-dropdown li {
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.sort-dropdown li:hover,
+.sort-dropdown li.selected {
+  background: #f2f4ff;
+  color: #ad1fea;
+  font-weight: bold;
+}
+
+/* FEEDBACK CARD */
 .feedback-card {
   background: white;
   border-radius: 10px;
   padding: 1rem;
   margin-bottom: 1rem;
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  cursor: pointer;
 }
 
 .card-header {
@@ -110,8 +161,6 @@ h1, h2, h3 {
   margin-left: 1rem;
   font-weight: bold;
   color: #647196;
-  display: flex;
-  align-items: center;
 }
 
 .category-badge {
@@ -121,117 +170,26 @@ h1, h2, h3 {
   border-radius: 6px;
   font-size: 0.85rem;
   font-weight: bold;
-  display: inline-block;
-  margin-top: 0.5rem;
 }
 
 /* UPVOTE BUTTON */
 .upvote-button {
   background: #f2f4ff;
-  border: none;
-  color: #4661e6;
-  font-weight: bold;
   border-radius: 6px;
   padding: 0.5rem;
+  font-weight: bold;
+  color: #4661e6;
   cursor: pointer;
-  min-width: 50px;
 }
 
-/* SUGGESTIONS HEADER */
-.suggestions-header {
-  background: #3a4374;
-  color: white;
-  padding: 1rem 2rem;
-  border-radius: 10px;
-  margin-bottom: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* ADD FEEDBACK */
+/* ADD FEEDBACK BUTTON */
 .add-feedback-button {
   background: #ad1fea;
   color: white;
   padding: 0.75rem 1.25rem;
-  border: none;
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
-}
-
-/* SORTING DROPDOWN */
-.sort-container {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  position: relative;
-  font-weight: bold;
-  color: white;
-}
-
-.sort-button {
-  background: none;
-  border: none;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.sort-dropdown {
-  position: absolute;
-  top: 2rem;
-  background: white;
-  color: #4661e6;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  width: 200px;
-  z-index: 1000;
-}
-
-.sort-dropdown li {
-  padding: 1rem;
-  cursor: pointer;
-}
-
-.sort-dropdown li:hover,
-.sort-dropdown li.selected {
-  background: #f2f4ff;
-  color: #ad1fea;
-  font-weight: bold;
-}
-
-/* EMPTY STATE */
-.empty-state {
-  text-align: center;
-  margin-top: 4rem;
-}
-
-.empty-state h3 {
-  font-size: 1.5rem;
-}
-
-/* ROADMAP GRID */
-.roadmap-grid {
-  display: flex;
-  gap: 2rem;
-}
-
-.roadmap-column {
-  flex: 1;
-}
-
-/* GO BACK BUTTON */
-.go-back-button {
-  background: none;
-  border: none;
-  color: #4661e6;
-  font-weight: bold;
-  cursor: pointer;
-  margin-bottom: 1rem;
 }
 
 /* FORM ELEMENTS */
@@ -258,29 +216,116 @@ form button {
   cursor: pointer;
 }
 
-form button[type="submit"] {
+/* EMPTY STATE */
+.empty-state {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.empty-state h3 {
+  font-size: 1.5rem;
+}
+
+/* MOBILE HEADER BAR */
+.mobile-header-bar {
+  display: none;
+  flex-direction: column;
+  background: linear-gradient(to right, #8a2be2, #ff8aa3);
+  padding: 1rem;
+  color: white;
+  border-radius: 0 0 10px 10px;
+  margin-bottom: 1rem;
+}
+
+.mobile-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-header-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.mobile-company h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.mobile-company p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* MOBILE SORT & ADD FEEDBACK */
+.mobile-sort-container {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.mobile-sort-container .sort-button {
+  background: none;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.mobile-add-feedback {
   background: #ad1fea;
   color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
 }
 
-form button[type="button"] {
-  background: #3a4374;
-  color: white;
+/* MOBILE SIDEBAR */
+.mobile-sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 1000;
 }
 
-form button[type="button"].delete {
-  background: red;
+.mobile-sidebar {
+  background: #f7f8fd;
+  padding: 2rem;
+  width: 80%;
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
+  animation: slideIn 0.3s ease-out;
 }
 
-/* COMMENT SECTION */
-.comment-list {
-  list-style: none;
-  padding: 0;
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
 }
 
-.comment-list li {
-  border-bottom: 1px solid #ddd;
-  padding: 1rem 0;
+.close-menu {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 1.25rem;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 /* MEDIA QUERIES */
@@ -296,40 +341,28 @@ form button[type="button"].delete {
     flex-wrap: wrap;
     gap: 1rem;
   }
-
-  .roadmap-grid {
-    flex-direction: column;
-  }
-
-  .suggestions-header {
-    flex-direction: column;
-    gap: 1rem;
-  }
 }
 
 @media (max-width: 640px) {
+  .sidebar {
+    display: none;
+  }
+
+  .mobile-header-bar {
+    display: flex;
+  }
+
+  .desktop-suggestions-header {
+    display: none;
+  }
+
   .home-container {
+    flex-direction: column;
     padding: 1rem;
   }
 
-  .sidebar {
-    display: none; /* replace with collapsible menu if needed */
-  }
-
-  .main-content,
-  .roadmap-page {
-    padding: 0 1rem;
-  }
-
-  .add-feedback-button,
-  form button,
-  .go-back-button {
+  .main-content {
     width: 100%;
-    margin-top: 0.5rem;
-  }
-
-  .roadmap-grid {
-    gap: 1rem;
   }
 
   .feedback-card {
@@ -339,4 +372,213 @@ form button[type="button"].delete {
   .sort-dropdown {
     width: 100%;
   }
+
+  .add-feedback-button {
+    display: none;
+  }
+}
+
+/* --- MOBILE HEADER --- */
+.mobile-header-bar {
+  display: none;
+  flex-direction: column;
+  background: linear-gradient(to right, #8a2be2, #ff8aa3);
+  padding: 1rem;
+  color: white;
+  border-radius: 0 0 10px 10px;
+  margin-bottom: 1rem;
+}
+
+.mobile-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-company h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.mobile-company p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.mobile-header-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* Sort & Feedback Button on Mobile */
+.mobile-sort-container {
+  color: white;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.mobile-sort-container .sort-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.mobile-add-feedback {
+  background: #ad1fea;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* Show/hide layout */
+@media (max-width: 640px) {
+  .mobile-header-bar {
+    display: flex;
+  }
+
+  .desktop-suggestions-header {
+    display: none;
+  }
+
+  .add-feedback-button {
+    display: none;
+  }
+}
+
+/* ✅ Mobile Actions Row (Sort + Add Feedback) */
+.mobile-actions-row {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem 1.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .mobile-actions-row {
+    display: flex;
+  }
+}
+
+/* === ROADMAP PAGE === */
+.roadmap-container {
+  padding: 1rem;
+  max-width: 600px;
+  margin: auto;
+}
+
+.roadmap-header {
+  background: #3a4374;
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.go-back {
+  background: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.roadmap-tabs {
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem 0;
+  border-bottom: 2px solid #ccc;
+}
+
+.roadmap-tabs button {
+  background: none;
+  border: none;
+  font-weight: bold;
+  padding: 0.75rem;
+  cursor: pointer;
+  color: #647196;
+  border-bottom: 4px solid transparent;
+}
+
+.roadmap-tabs button.active {
+  color: #3a4374;
+  border-color: #ad1fea;
+}
+
+.roadmap-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.roadmap-description {
+  color: #647196;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.roadmap-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.status-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: bold;
+  color: #647196;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.roadmap-card h4 {
+  margin: 0.5rem 0;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.add-feedback-button {
+  background: #ad1fea;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: none;
 }
