@@ -11,12 +11,12 @@ function FeedbackDetail() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch('http://localhost:3000/feedback')
+      const res = await fetch('https://product-mgmt-server.onrender.com/feedback') // ✅ updated
       const allFeedback = await res.json()
       const match = allFeedback.find(item => item.id === parseInt(id))
       setFeedback(match)
 
-      const commentsRes = await fetch(`http://localhost:3000/comments/${id}`)
+      const commentsRes = await fetch(`https://product-mgmt-server.onrender.com/comments/${id}`) // ✅ updated
       const commentsData = await commentsRes.json()
       setComments(commentsData)
 
@@ -29,7 +29,7 @@ function FeedbackDetail() {
   const postComment = async () => {
     if (!commentText.trim()) return
 
-    const res = await fetch('http://localhost:3000/comments', {
+    const res = await fetch('https://product-mgmt-server.onrender.com/comments', { // ✅ updated
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

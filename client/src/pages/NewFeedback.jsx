@@ -27,7 +27,7 @@ function NewFeedback() {
       return
     }
 
-    await fetch('http://localhost:3000/feedback', {
+    await fetch('https://your-render-backend.onrender.com/feedback', { // 👈 change this line only
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)

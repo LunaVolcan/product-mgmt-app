@@ -7,7 +7,7 @@ function Roadmap() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch('http://localhost:3000/feedback')
+    fetch('https://product-mgmt-server.onrender.com/feedback') // ✅ updated URL
       .then(res => res.json())
       .then(data => setFeedback(data))
   }, [])

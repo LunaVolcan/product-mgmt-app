@@ -10,7 +10,7 @@ function Home() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch('http://localhost:3000/feedback')
+    fetch('https://product-mgmt-server.onrender.com/feedback') 
       .then(res => res.json())
       .then(data => setFeedback(data))
   }, [])
@@ -173,9 +173,9 @@ function Home() {
                 <button
                   className="upvote-button"
                   onClick={async () => {
-                    const res = await fetch(`http://localhost:3000/feedback/${item.id}/upvote`, {
-                      method: 'PATCH'
-                    })
+                    const res = await fetch(`https://product-mgmt-server.onrender.com/feedback/${item.id}/upvote`, { // ✅ UPDATED
+                        method: 'PATCH'
+                      })
                     const updated = await res.json()
                     setFeedback(prev =>
                       prev.map(f => (f.id === item.id ? updated : f))

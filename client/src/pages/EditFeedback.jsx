@@ -8,7 +8,7 @@ function EditFeedback() {
   const [errors, setErrors] = useState({})
 
   useEffect(() => {
-    fetch('http://localhost:3000/feedback')
+    fetch('https://product-mgmt-server.onrender.com/feedback') // ✅ updated
       .then(res => res.json())
       .then(data => {
         const item = data.find(f => f.id === parseInt(id))
@@ -28,7 +28,7 @@ function EditFeedback() {
     if (!formData.detail) newErrors.detail = "Can't be empty"
     if (Object.keys(newErrors).length) return setErrors(newErrors)
 
-    await fetch(`http://localhost:3000/feedback/${id}`, {
+    await fetch(`https://product-mgmt-server.onrender.com/feedback/${id}`, { // ✅ updated
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
@@ -38,7 +38,7 @@ function EditFeedback() {
   }
 
   const handleDelete = async () => {
-    await fetch(`http://localhost:3000/feedback/${id}`, {
+    await fetch(`https://product-mgmt-server.onrender.com/feedback/${id}`, { // ✅ updated
       method: 'DELETE'
     })
     navigate('/')
